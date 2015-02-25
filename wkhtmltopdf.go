@@ -110,11 +110,13 @@ func Url2jpeg(url string, args ...string) ([]byte, error) {
 		return nil, errors.New(nothaveWK)
 	}
 
-	cmdSlice := []string{url}
+	cmdSlice := []string{}
 
 	for _, line := range args {
 		cmdSlice = append(cmdSlice, line)
 	}
+
+	cmdSlice = append(cmdSlice, url)
 
 	// pipe to stdout
 	cmdSlice = append(cmdSlice, "-")
